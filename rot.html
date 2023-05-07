@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Rotation</title>
+	<style>
+		.container {
+			position: relative;
+			display: inline-block;
+			cursor: pointer;
+		}
+
+		.container img {
+			display: block;
+			transition: transform 0.5s ease;
+		}
+
+		.container img.rotate {
+			transform: rotate(90deg);
+		}
+
+		.container span {
+			position: absolute;
+			top: 50%;
+			left: 100%;
+			transform: translateY(-50%);
+			font-size: 36px;
+			color: rgb(0, 0, 0);
+			text-shadow: 2px 2px 4px black;
+			font-family: sans-serif;
+			font-weight: bold;
+			opacity: 0;
+			transition: opacity 0.5s ease, left 0.5s ease;
+			white-space: nowrap;
+		}
+
+		.container img.rotate + span {
+			opacity: 1;
+			left: calc(100% + 20px);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img src="pixo.png" alt="Rotated Image">
+		<span>Made with love❤️ by Pixonoids</span>
+	</div>
+
+	<script>
+		const image = document.querySelector('.container img');
+		const text = document.querySelector('.container span');
+
+		image.addEventListener('click', function() {
+			image.classList.toggle('rotate');
+			text.classList.toggle('show');
+		});
+	</script>
+</body>
+</html>
